@@ -75,8 +75,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>%(SolutionDir)ExternalLibraries\freetype-2.9\include;%(SolutionDir)ExternalLibraries\glfw-3.2.1.bin.WIN32\include;%(SolutionDir)ExternalLibraries\glew-2.1.0\include;%(SolutionDir)ExternalLibraries\glm-0.9.9-a2\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>%(SolutionDir)ExternalLibraries\freetype-2.9\objs\Win32\Release;%(SolutionDir)ExternalLibraries\glfw-3.2.1.bin.WIN32\lib-vc2015;%(SolutionDir)ExternalLibraries\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);%(SolutionDir)freetype.lib;%(SolutionDir)opengl32.lib;%(SolutionDir)glew32.lib;%(SolutionDir)glfw3.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -94,10 +101,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>%(SolutionDir)ExternalLibraries\freetype-2.9\include;%(SolutionDir)ExternalLibraries\glfw-3.2.1.bin.WIN32\include;%(SolutionDir)ExternalLibraries\glew-2.1.0\include;%(SolutionDir)ExternalLibraries\glm-0.9.9-a2\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>%(SolutionDir)ExternalLibraries\freetype-2.9\objs\Win32\Release;%(SolutionDir)ExternalLibraries\glfw-3.2.1.bin.WIN32\lib-vc2015;%(SolutionDir)ExternalLibraries\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);%(SolutionDir)freetype.lib;%(SolutionDir)opengl32.lib;%(SolutionDir)glew32.lib;%(SolutionDir)glfw3.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -115,6 +126,58 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="scripts\MaterialManager.h" />
+    <ClInclude Include="scripts\MeshManager.h" />
+    <ClInclude Include="scripts/Application.h" />
+    <ClInclude Include="scripts/BillboardRenderer.h" />
+    <ClInclude Include="scripts/Camera.h" />
+    <ClInclude Include="scripts/Component.h" />
+    <ClInclude Include="scripts/Debug.h" />
+    <ClInclude Include="scripts/Debuging.h" />
+    <ClInclude Include="scripts/DebugObjectContext.h" />
+    <ClInclude Include="scripts/ECS.h" />
+    <ClInclude Include="scripts/EngineSystems.h" />
+    <ClInclude Include="scripts/GameObject.h" />
+    <ClInclude Include="scripts/Material.h" />
+    <ClInclude Include="scripts/Mesh.h" />
+    <ClInclude Include="scripts/MeshRenderer.h" />
+    <ClInclude Include="scripts/OBJLoader.h" />
+    <ClInclude Include="scripts/Pipeline.h" />
+    <ClInclude Include="scripts/Renderer.h" />
+    <ClInclude Include="scripts/RenderPackage.h" />
+    <ClInclude Include="scripts/RenderSystem.h" />
+    <ClInclude Include="scripts/Scene.h" />
+    <ClInclude Include="scripts/SpriteRenderer.h" />
+    <ClInclude Include="scripts/stdafx.h" />
+    <ClInclude Include="scripts/System.h" />
+    <ClInclude Include="scripts/TestScene.h" />
+    <ClInclude Include="scripts/Time.h" />
+    <ClInclude Include="scripts/Transform.h" />
+    <ClInclude Include="scripts/UIRenderer.h" />
+    <ClInclude Include="scripts/Window.h" />
+    <ClInclude Include="scripts\FileReader.h" />
+    <ClInclude Include="scripts\FontManager.h" />
+    <ClInclude Include="scripts\Shader.h" />
+    <ClInclude Include="scripts\ShaderManager.h" />
+    <ClInclude Include="scripts\TurnTable.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="scripts/Application.cpp" />
+    <ClCompile Include="scripts/GameObject.cpp" />
+    <ClCompile Include="scripts/main.cpp" />
+    <ClCompile Include="scripts/RenderSystem.cpp" />
+    <ClCompile Include="scripts/Scene.cpp" />
+    <ClCompile Include="scripts/TestScene.cpp" />
+    <ClCompile Include="scripts/Time.cpp" />
+    <ClCompile Include="scripts/Window.cpp" />
+    <ClCompile Include="scripts\Debug.cpp" />
+    <ClCompile Include="scripts\Material.cpp" />
+    <ClCompile Include="scripts\MaterialManager.cpp" />
+    <ClCompile Include="scripts\Mesh.cpp" />
+    <ClCompile Include="scripts\MeshManager.cpp" />
+    <ClCompile Include="scripts\Shader.cpp" />
+    <ClCompile Include="scripts\ShaderManager.cpp" />
+    <ClCompile Include="scripts\TurnTable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

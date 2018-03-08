@@ -13,5 +13,237 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{d358e5a9-ee0b-4030-a50a-5a36d06b83fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{902ec261-1ece-4022-b5b0-eddfcda71cd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Main">
+      <UniqueIdentifier>{430a2ef2-1e6e-49df-9ba0-6ed309f554da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Main">
+      <UniqueIdentifier>{ef8c3981-0a62-48c4-a9e0-6112332cbfe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems">
+      <UniqueIdentifier>{f0bc25ea-5162-45f2-93f6-81d2017e15de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems">
+      <UniqueIdentifier>{c55e9548-1c5b-4547-821b-63a53840291c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Tools">
+      <UniqueIdentifier>{4548a5f9-006b-469d-84a1-48fe7de9d6f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Essentials">
+      <UniqueIdentifier>{fc3409e1-e9ac-4589-a890-68998d111f28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Tools">
+      <UniqueIdentifier>{f0da6871-cee8-420d-b481-5efbaa90ac78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Essentials">
+      <UniqueIdentifier>{8f57c2c2-b561-4497-9e25-4a5bf8d9fcd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Rendering">
+      <UniqueIdentifier>{cc396079-e0e5-4eea-9da0-e985c4e56ed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Sound">
+      <UniqueIdentifier>{d88306bd-f824-47a6-afda-32d9fae2698f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\ECS">
+      <UniqueIdentifier>{f74ebe5d-ec5d-4375-9de6-a207a0320176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems\ECS">
+      <UniqueIdentifier>{3bfde53e-2824-4a45-964e-ace6efe97dcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems\Sound">
+      <UniqueIdentifier>{f983b6be-40c0-4e47-913d-a824f1e305bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems\Rendering">
+      <UniqueIdentifier>{8c1776fc-263a-4cf3-bd40-b83adaa310fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Pipeline">
+      <UniqueIdentifier>{a5b2c639-3008-4772-be26-b2e1b20c7d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems\Pipeline">
+      <UniqueIdentifier>{b0082300-5717-4f49-8237-e54e28cb5d6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Basics">
+      <UniqueIdentifier>{6f8cc97a-0af9-4021-89ea-584347ce60d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems\Basics">
+      <UniqueIdentifier>{80fbe367-213d-4a97-a1ea-66f287dc05bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems\Physics">
+      <UniqueIdentifier>{c0d23b88-8e27-4257-864c-4fa522922137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Physics">
+      <UniqueIdentifier>{27af2db6-8c23-47f0-a417-2d0f6dcf703c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems\Rendering\RenderComponents">
+      <UniqueIdentifier>{35562032-a89e-4080-bdcb-86efb5e8373f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\HeaderCollections">
+      <UniqueIdentifier>{620d5b70-0521-4769-a787-19e9e2ce1afb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Systems\Rendering\Manager">
+      <UniqueIdentifier>{efaed628-d066-4557-a716-89cb9ce1e290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Rendering\Manager">
+      <UniqueIdentifier>{a7cfe65a-697a-4198-b204-edee50d635c0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="scripts/Application.cpp">
+      <Filter>Source Files\Engine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts/GameObject.cpp">
+      <Filter>Source Files\Engine\Systems\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts/main.cpp">
+      <Filter>Source Files\Engine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts/RenderSystem.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts/Scene.cpp">
+      <Filter>Source Files\Engine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts/TestScene.cpp">
+      <Filter>Source Files\Engine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts/Time.cpp">
+      <Filter>Source Files\Engine\Systems\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts/Window.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\Shader.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\Material.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\Mesh.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\MaterialManager.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\ShaderManager.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\MeshManager.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\TurnTable.cpp">
+      <Filter>Source Files\Engine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\Debug.cpp">
+      <Filter>Source Files\Engine\Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="scripts/BillboardRenderer.h">
+      <Filter>Header Files\Engine\Systems\Rendering\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Camera.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Component.h">
+      <Filter>Header Files\Engine\Systems\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Debug.h">
+      <Filter>Header Files\Engine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/DebugObjectContext.h">
+      <Filter>Header Files\Engine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/ECS.h">
+      <Filter>Header Files\Engine\Systems\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/GameObject.h">
+      <Filter>Header Files\Engine\Systems\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Material.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Mesh.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/MeshRenderer.h">
+      <Filter>Header Files\Engine\Systems\Rendering\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/OBJLoader.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Pipeline.h">
+      <Filter>Header Files\Engine\Systems\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Renderer.h">
+      <Filter>Header Files\Engine\Systems\Rendering\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/RenderPackage.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/RenderSystem.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Scene.h">
+      <Filter>Header Files\Engine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/SpriteRenderer.h">
+      <Filter>Header Files\Engine\Systems\Rendering\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/System.h">
+      <Filter>Header Files\Engine\Systems\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/TestScene.h">
+      <Filter>Header Files\Engine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Time.h">
+      <Filter>Header Files\Engine\Systems\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Transform.h">
+      <Filter>Header Files\Engine\Systems\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/UIRenderer.h">
+      <Filter>Header Files\Engine\Systems\Rendering\RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Window.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/stdafx.h">
+      <Filter>Header Files\Engine\HeaderCollections</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/EngineSystems.h">
+      <Filter>Header Files\Engine\HeaderCollections</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Debuging.h">
+      <Filter>Header Files\Engine\HeaderCollections</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\FontManager.h">
+      <Filter>Header Files\Engine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\FileReader.h">
+      <Filter>Header Files\Engine\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\Shader.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\MaterialManager.h">
+      <Filter>Header Files\Engine\Systems\Rendering\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\MeshManager.h">
+      <Filter>Header Files\Engine\Systems\Rendering\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\ShaderManager.h">
+      <Filter>Header Files\Engine\Systems\Rendering\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\TurnTable.h">
+      <Filter>Header Files\Engine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts/Application.h">
+      <Filter>Header Files\Engine\Main</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
