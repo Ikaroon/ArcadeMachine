@@ -1,10 +1,9 @@
 #pragma once
 #include <time.h>
-#include "System.h"
 #include "stdafx.h"
 #include "DebugObjectContext.h"
 
-class Time : public System, public DebugObjectContext
+class Time : public DebugObjectContext
 {
 public:
 	static Time* instance()
@@ -15,6 +14,7 @@ public:
 		return INSTANCE;
 	}
 
+	static float get_LastTime();
 	static float get_Time();
 
 	static float get_TimeSinceStart();

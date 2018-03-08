@@ -25,7 +25,7 @@ void TurnTable::update()
 			Transform* parent = camera->get_GameObject()->get_Transform()->get_Parent();
 			if (parent != nullptr)
 			{
-				parent->rotateLocal(0.0f, 3.6f * Time::get_DeltaTime(), 0.0f);
+				parent->rotateLocal(0.0f, 0.6f * Time::get_DeltaTime(), 0.0f);
 			}
 		}
 	}

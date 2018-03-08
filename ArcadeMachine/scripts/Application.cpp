@@ -10,7 +10,6 @@ Application::Application()
 {
 
 	m_engineSystems = {
-		Time::instance(),
 		new RenderSystem()
 	};
 
@@ -29,6 +28,10 @@ int Application::update()
 {
 	while (m_ApplicationStatus != status::CLOSE)
 	{
+		if (Time::get_Time() - Time::get_LastTime() <= (1.0f / 60.0f))
+		{
+			continue;
+		}
 
 		if (m_ApplicationStatus == status::CLOSE)
 		{
@@ -74,6 +77,8 @@ int Application::update()
 			}
 			break;
 		}
+
+		Time::instance()->update();
 	}
 
 	delete instance();

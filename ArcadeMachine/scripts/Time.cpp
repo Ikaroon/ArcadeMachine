@@ -2,7 +2,7 @@
 
 Time* Time::INSTANCE = 0;
 
-Time::Time() : System()
+Time::Time()
 {
 	startFrameTime = get_Time();
 	lastFrameTime = startFrameTime;
@@ -14,6 +14,11 @@ Time::~Time()
 	std::cout << "Shut off: Time System" << std::endl;
 }
 
+
+float Time::get_LastTime()
+{
+	return instance()->lastFrameTime;
+}
 
 float Time::get_Time()
 {
@@ -40,7 +45,7 @@ float Time::get_DeltaTime()
 
 float Time::get_DeltaTimeLocal()
 {
-	return deltaTime * timeScale;
+	return get_DeltaTimeUnscaledLocal() * timeScale;
 }
 
 
