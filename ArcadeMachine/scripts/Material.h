@@ -1,5 +1,6 @@
 #pragma once
 #include "Shader.h"
+#include "Texture.h"
 
 class Material
 {
@@ -16,9 +17,10 @@ public:
 
 	void setActive();
 	void setMVP(glm::mat4 view, glm::mat4 proj, glm::mat4 model);
+	void setTexture(std::string name, Texture* texture);
 private:
 	Shader* m_Shader;
-
+	std::map<std::string, Texture*> m_Textures;
 };
 
 //Material* Material::SPRITE_MATERIAL = new Material(NULL);

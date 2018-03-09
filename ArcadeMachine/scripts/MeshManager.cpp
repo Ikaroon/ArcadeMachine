@@ -14,7 +14,8 @@ void MeshManager::addMeshLocal(std::string name, Mesh * mesh)
 		return;
 	}
 
-	m_Meshes.insert(std::pair<std::string, Mesh*>(name, mesh));
+	Debug::log("Registered (Mesh: " + name + ")");
+	m_Meshes[name] = mesh;
 }
 
 Mesh * MeshManager::getMesh(std::string name)
@@ -34,9 +35,10 @@ void MeshManager::clear()
 
 void MeshManager::clearLocal()
 {
-	for (auto material : m_Meshes)
+	for (auto mesh : m_Meshes)
 	{
-		delete material.second;
+		Debug::log("Deleted (Mesh: " + mesh.first + ")");
+		delete mesh.second;
 	}
 	m_Meshes.clear();
 }

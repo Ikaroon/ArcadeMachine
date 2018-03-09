@@ -9,11 +9,18 @@ public:
 	float m_NearClip;
 	float m_FarClip;
 
+	static Camera* activeCamera;
+
 	Camera(float FoV, float nearClip, float farClip)
 	{
 		m_FoV = FoV;
 		m_NearClip = nearClip;
 		m_FarClip = farClip;
+
+		if (activeCamera == nullptr)
+		{
+			activeCamera = this;
+		}
 	}
 
 	virtual ~Camera() {};

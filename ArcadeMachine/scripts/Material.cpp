@@ -23,12 +23,22 @@ Material::~Material()
 void Material::setActive()
 {
 	m_Shader->use();
+	unsigned int texSampler = 0;
+	for (auto const &texture : m_Textures)
+	{
+		glUniform1i(glGetUniformLocation(m_Shader->get_Program(), texture.first.c_str()), texSampler);
+		glActiveTexture(GL_TEXTURE0 + texSampler);
+		glBindTexture(GL_TEXTURE_2D, texture.second->get_ID());
+		glBindSampler(0, 0);
+
+		texSampler++;
+	}
 }
 
 void Material::setMVP(glm::mat4 view, glm::mat4 proj, glm::mat4 model)
 {
 	// Get a handle for our "M" uniform
-	GLuint MatrixID;/* = glGetUniformLocation(m_Shader->get_Program(), "_M");
+	GLuint MatrixID = glGetUniformLocation(m_Shader->get_Program(), "_M");
 
 	// Send our transformation to the currently bound shader, in the "M" uniform
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &model[0][0]);
@@ -44,7 +54,7 @@ void Material::setMVP(glm::mat4 view, glm::mat4 proj, glm::mat4 model)
 
 	// Send our transformation to the currently bound shader, in the "P" uniform
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &proj[0][0]);
-	*/
+	
 	glm::mat4 mvp = proj * view * model;
 
 	// Get a handle for our "MVP" uniform
@@ -52,4 +62,9 @@ void Material::setMVP(glm::mat4 view, glm::mat4 proj, glm::mat4 model)
 
 	// Send our transformation to the currently bound shader, in the "MVP" uniform
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
+}
+
+void Material::setTexture(std::string name, Texture* texture)
+{
+	m_Textures[name] = texture;
 }

@@ -8,8 +8,6 @@ public:
 	Renderer() {};
 	virtual ~Renderer()
 	{
-		delete m_Mesh;
-		delete m_Material;
 	};
 
 	virtual RenderPackage get_RenderData()

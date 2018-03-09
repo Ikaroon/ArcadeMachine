@@ -14,7 +14,8 @@ void ShaderManager::addShaderLocal(std::string name, Shader * material)
 		return;
 	}
 
-	m_Shaders.insert(std::pair<std::string, Shader*>(name, material));
+	Debug::log("Registered (Shader: " + name + ")");
+	m_Shaders[name] = material;
 }
 
 Shader * ShaderManager::getShader(std::string name)
@@ -34,9 +35,10 @@ void ShaderManager::clear()
 
 void ShaderManager::clearLocal()
 {
-	for (auto material : m_Shaders)
+	for (auto shader : m_Shaders)
 	{
-		delete material.second;
+		Debug::log("Deleted (Shader: " + shader.first + ")");
+		delete shader.second;
 	}
 	m_Shaders.clear();
 }

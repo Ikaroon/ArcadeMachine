@@ -159,6 +159,11 @@
     <ClInclude Include="scripts\FontManager.h" />
     <ClInclude Include="scripts\Shader.h" />
     <ClInclude Include="scripts\ShaderManager.h" />
+    <ClInclude Include="scripts\stb_image.h" />
+    <ClInclude Include="scripts\Texture.h" />
+    <ClInclude Include="scripts\TextureData.h" />
+    <ClInclude Include="scripts\TextureLoader.h" />
+    <ClInclude Include="scripts\TextureManager.h" />
     <ClInclude Include="scripts\TurnTable.h" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +175,7 @@
     <ClCompile Include="scripts/TestScene.cpp" />
     <ClCompile Include="scripts/Time.cpp" />
     <ClCompile Include="scripts/Window.cpp" />
+    <ClCompile Include="scripts\Camera.cpp" />
     <ClCompile Include="scripts\Debug.cpp" />
     <ClCompile Include="scripts\Material.cpp" />
     <ClCompile Include="scripts\MaterialManager.cpp" />
@@ -177,6 +183,10 @@
     <ClCompile Include="scripts\MeshManager.cpp" />
     <ClCompile Include="scripts\Shader.cpp" />
     <ClCompile Include="scripts\ShaderManager.cpp" />
+    <ClCompile Include="scripts\STBIMAGE.cpp" />
+    <ClCompile Include="scripts\Texture.cpp" />
+    <ClCompile Include="scripts\TextureLoader.cpp" />
+    <ClCompile Include="scripts\TextureManager.cpp" />
     <ClCompile Include="scripts\TurnTable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

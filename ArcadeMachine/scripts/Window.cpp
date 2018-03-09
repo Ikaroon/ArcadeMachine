@@ -37,6 +37,10 @@ Window::Window(int width, int height)
 	// Set OpenGL options
 	glEnable(GL_CULL_FACE);
 
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+
+
 	Debug::log("Window opened");
 }
 

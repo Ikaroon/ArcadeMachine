@@ -141,6 +141,21 @@
     <ClCompile Include="scripts\Debug.cpp">
       <Filter>Source Files\Engine\Main</Filter>
     </ClCompile>
+    <ClCompile Include="scripts\Camera.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\TextureManager.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\Texture.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\TextureLoader.cpp">
+      <Filter>Source Files\Engine\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\STBIMAGE.cpp">
+      <Filter>Source Files\Engine\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scripts/BillboardRenderer.h">
@@ -244,6 +259,21 @@
     </ClInclude>
     <ClInclude Include="scripts/Application.h">
       <Filter>Header Files\Engine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\Texture.h">
+      <Filter>Header Files\Engine\Systems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\TextureManager.h">
+      <Filter>Header Files\Engine\Systems\Rendering\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\TextureLoader.h">
+      <Filter>Header Files\Engine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\TextureData.h">
+      <Filter>Header Files\Engine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\stb_image.h">
+      <Filter>Header Files\Engine\Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

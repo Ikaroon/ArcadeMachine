@@ -14,7 +14,8 @@ void MaterialManager::addMaterialLocal(std::string name, Material * material)
 		return;
 	}
 
-	m_Materials.insert(std::pair<std::string, Material*>(name, material));
+	Debug::log("Registered (Material: " + name + ")");
+	m_Materials[name] = material;
 }
 
 Material * MaterialManager::getMaterial(std::string name)
@@ -36,6 +37,7 @@ void MaterialManager::clearLocal()
 {
 	for (auto material : m_Materials)
 	{
+		Debug::log("Deleted (Material: " + material.first + ")");
 		delete material.second;
 	}
 	m_Materials.clear();

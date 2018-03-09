@@ -52,14 +52,11 @@ void RenderSystem::onRender()
 	glm::mat4 viewMatrix;
 	glm::mat4 projectionMatrix;
 
-	for (unsigned int c = 0; c < m_Components->size(); c++)
+	Camera* camera = Camera::activeCamera;
+	if (camera != nullptr)
 	{
-		Camera* camera = dynamic_cast<Camera*>((*m_Components)[c]);
-		if (camera != nullptr)
-		{
-			viewMatrix = camera->get_ViewMatrix();
-			projectionMatrix = camera->get_PerspectiveMatrix(1280, 768);
-		}
+		viewMatrix = camera->get_ViewMatrix();
+		projectionMatrix = camera->get_PerspectiveMatrix(1280, 768);
 	}
 
 	for (unsigned int c = 0; c < m_Components->size(); c++)

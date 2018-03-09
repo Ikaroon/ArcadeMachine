@@ -1,0 +1,36 @@
+{
+	"Textures": {
+		{"Test", "textures/testCheckerboard.bmp"},
+		{"Test2", "textures/blue_64_text.bmp"}
+	},
+	"Shaders": {
+		{"Test", "shaders/test"}
+	},
+	"Materials": {
+		{
+			"Name": "Test",
+			"Shader": "Test",
+			"Content": {
+				{"Texture", "myTextureSampler", "Test"},
+				{"Texture", "myTextureSampler2", "Test2"}
+			}
+		},
+		{
+			"Name": "Test2",
+			"Shader": "Test",
+			"Content": {
+				{"Texture", "myTextureSampler", "Test2"},
+				{"Texture", "myTextureSampler2", "Test"}
+			}
+		}
+	},
+	"Meshes": {
+		{"Test", "meshes/testMesh.obj"}
+	},
+	"GameObjects": {
+		
+	},
+	"Systems": {
+		"TurnTable"
+	}
+}
