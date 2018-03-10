@@ -11,6 +11,7 @@ void TextureManager::addTextureLocal(std::string name, Texture* texture)
 {
 	if (m_Textures[name] != nullptr)
 	{
+		addTextureLocal(name, 1, texture);
 		return;
 	}
 
@@ -41,4 +42,17 @@ void TextureManager::clearLocal()
 		delete texture.second;
 	}
 	m_Textures.clear();
+}
+
+void TextureManager::addTextureLocal(std::string name, int count, Texture * texture)
+{
+	std::string newName = name + "(" + std::to_string(count) + ")";
+	if (m_Textures[newName] != nullptr)
+	{
+		addTextureLocal(name, count + 1, texture);
+		return;
+	}
+
+	Debug::log("Registered (Texture: " + newName + ")");
+	m_Textures[newName] = texture;
 }

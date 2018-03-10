@@ -11,6 +11,8 @@ Texture::Texture(std::string name, std::string path)
 	TextureManager::addTexture(name, this);
 }
 
+Texture::Texture(std::string path) : Texture("unnamed", path) {}
+
 Texture::~Texture()
 {
 }

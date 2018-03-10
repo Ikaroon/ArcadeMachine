@@ -5,12 +5,12 @@
 
 TurnTable::TurnTable()
 {
-
+	Debug::log("Started: TurnTable System");
 }
 
 TurnTable::~TurnTable()
 {
-
+	Debug::log("Shut off: TurnTable System");
 }
 
 void TurnTable::update()

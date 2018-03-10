@@ -113,12 +113,12 @@ public:
 		{
 			return m_LocalRotation;
 		}
-		return m_LocalRotation *m_Parent->get_Rotation();
+		return  m_LocalRotation * m_Parent->get_Rotation();
 	}
 
 	glm::mat4x4 get_RotationMatrix() const
 	{
-		return glm::toMat4(m_LocalRotation);
+		return glm::toMat4(get_Rotation());
 	}
 
 	const Transform* ROOT = nullptr;

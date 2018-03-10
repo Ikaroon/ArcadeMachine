@@ -11,6 +11,7 @@ void ShaderManager::addShaderLocal(std::string name, Shader * material)
 {
 	if (m_Shaders[name] != nullptr)
 	{
+		addShaderLocal(name, 1, material);
 		return;
 	}
 
@@ -41,4 +42,17 @@ void ShaderManager::clearLocal()
 		delete shader.second;
 	}
 	m_Shaders.clear();
+}
+
+void ShaderManager::addShaderLocal(std::string name, int count, Shader * shader)
+{
+	std::string newName = name + "(" + std::to_string(count) + ")";
+	if (m_Shaders[newName] != nullptr)
+	{
+		addShaderLocal(name, count + 1, shader);
+		return;
+	}
+
+	Debug::log("Registered (Shader: " + newName + ")");
+	m_Shaders[newName] = shader;
 }

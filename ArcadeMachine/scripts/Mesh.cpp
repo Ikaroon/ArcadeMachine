@@ -6,6 +6,8 @@ Mesh::Mesh(std::string name)
 	MeshManager::addMesh(name, this);
 }
 
+Mesh::Mesh() : Mesh("unnamed") {}
+
 void Mesh::set_Vertices(std::vector<glm::vec3> vertices)
 {
 	m_Vertices = vertices;

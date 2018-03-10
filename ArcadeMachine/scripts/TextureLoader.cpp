@@ -20,8 +20,25 @@ TextureData TextureLoader::load(std::string path)
 	unsigned char *data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 	if (data)
 	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
+		switch (channels)
+		{
+		case 1: {
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_R, GL_UNSIGNED_BYTE, data);
+			glGenerateMipmap(GL_TEXTURE_2D);
+		} break;
+		case 2: {
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RG, GL_UNSIGNED_BYTE, data);
+			glGenerateMipmap(GL_TEXTURE_2D);
+		} break;
+		case 3: {
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			glGenerateMipmap(GL_TEXTURE_2D);
+		} break;
+		case 4: {
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glGenerateMipmap(GL_TEXTURE_2D);
+		} break;
+		}
 	}
 	else
 	{
@@ -29,7 +46,7 @@ TextureData TextureLoader::load(std::string path)
 	}
 	stbi_image_free(data);
 
-	Debug::log("Texture found: " + std::to_string(textureID) + " : " + std::to_string(width) + "x" + std::to_string(height));
+	Debug::log("Texture found: " + std::to_string(textureID) + " : " + std::to_string(width) + "x" + std::to_string(height) + " : " + std::to_string(channels) + " channels");
 
 	return TextureData{textureID, width, height};
 }

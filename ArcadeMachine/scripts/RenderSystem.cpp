@@ -10,14 +10,17 @@
 
 RenderSystem::RenderSystem()
 {
+	Debug::log("Starting: Render System");
 	// Initialise GLFW
 	if (!glfwInit())
 	{
-		Debug::error("Failed to initialize GLFW");
+		Debug::error("Render System: Failed to initialize GLFW");
 		Application::close();
 		return;
 	}
 	m_Window = new Window(1280, 768);
+
+	Debug::log("Started: Render System");
 
 	//FontManager::registerFont("standard", "fonts/arial.ttf");
 }
@@ -56,7 +59,7 @@ void RenderSystem::onRender()
 	if (camera != nullptr)
 	{
 		viewMatrix = camera->get_ViewMatrix();
-		projectionMatrix = camera->get_PerspectiveMatrix(1280, 768);
+		projectionMatrix = camera->get_PerspectiveMatrix(m_Window->get_Width(), m_Window->get_Height());
 	}
 
 	for (unsigned int c = 0; c < m_Components->size(); c++)

@@ -10,8 +10,8 @@ public:
 	static Material* UI_MATERIAL;
 	static Material* STANDARD_MATERIAL;
 
-	Material(Shader* shader);
 	explicit Material(std::string name, Shader* shader);
+	Material(Shader* shader);
 
 	virtual ~Material();
 

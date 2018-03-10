@@ -33,6 +33,8 @@ private:
 
 	std::map<std::string, Shader*> m_Shaders;
 
+	void addShaderLocal(std::string name, int count, Shader* shader);
+
 	class CGuard
 	{
 	public:

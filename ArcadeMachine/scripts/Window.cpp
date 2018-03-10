@@ -18,7 +18,7 @@ Window::Window(int width, int height)
 	// (In the accompanying source code, this variable is global for simplicity)
 	m_Window = glfwCreateWindow(width, height, "Arcade Machine", NULL, NULL);
 	if (m_Window == NULL) {
-		Debug::error("Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.");
+		Debug::error("Render System: Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.");
 		glfwTerminate();
 		Application::close();
 		return;
@@ -26,7 +26,7 @@ Window::Window(int width, int height)
 	glfwMakeContextCurrent(m_Window); // Initialize GLEW
 	glewExperimental = true; // Needed in core profile
 	if (glewInit() != GLEW_OK) {
-		Debug::error("Failed to initialize GLEW");
+		Debug::error("Render System: Failed to initialize GLEW");
 		Application::close();
 		return;
 	}
@@ -41,7 +41,7 @@ Window::Window(int width, int height)
 	glDepthFunc(GL_LESS);
 
 
-	Debug::log("Window opened");
+	Debug::log("Render System: Window opened");
 }
 
 Window::~Window()
@@ -54,7 +54,7 @@ void Window::beginRendering()
 {
 	if (m_Window == nullptr)
 	{
-		Debug::error("No window found!");
+		Debug::error("Render System: No window found!");
 		Application::close();
 		return;
 	}
@@ -67,7 +67,7 @@ void Window::endRendering()
 {
 	if (m_Window == nullptr)
 	{
-		Debug::error("No window found!");
+		Debug::error("Render System: No window found!");
 		Application::close();
 		return;
 	}
@@ -79,7 +79,7 @@ void Window::update()
 {
 	if (m_Window == nullptr)
 	{
-		Debug::error("No window found!");
+		Debug::error("Render System: No window found!");
 		Application::close();
 		return;
 	}
@@ -100,7 +100,19 @@ void Window::update()
 
 void Window::close()
 {
-	Debug::log("Window closed.");
+	Debug::log("Render System: Window closed");
 	glfwSetWindowShouldClose(m_Window, 1);
 	update();
+}
+
+int Window::get_Width()
+{
+	glfwGetWindowSize(m_Window, &m_Width, NULL);
+	return m_Width;
+}
+
+int Window::get_Height()
+{
+	glfwGetWindowSize(m_Window, NULL, &m_Height);
+	return m_Height;
 }

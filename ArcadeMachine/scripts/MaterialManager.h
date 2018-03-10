@@ -33,6 +33,8 @@ private:
 
 	std::map<std::string, Material*> m_Materials;
 
+	void addMaterialLocal(std::string name, int count, Material* material);
+
 	class CGuard
 	{
 	public:

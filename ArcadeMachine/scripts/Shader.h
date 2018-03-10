@@ -6,8 +6,8 @@ typedef const char* string;
 class Shader
 {
 public:
-	Shader(std::string path);
 	Shader(std::string name, std::string path);
+	Shader(std::string path);
 	virtual ~Shader() {};
 
 	void use();

@@ -11,6 +11,7 @@ void MeshManager::addMeshLocal(std::string name, Mesh * mesh)
 {
 	if (m_Meshes[name] != nullptr)
 	{
+		addMeshLocal(name, 1, mesh);
 		return;
 	}
 
@@ -41,4 +42,17 @@ void MeshManager::clearLocal()
 		delete mesh.second;
 	}
 	m_Meshes.clear();
+}
+
+void MeshManager::addMeshLocal(std::string name, int count, Mesh * mesh)
+{
+	std::string newName = name + "(" + std::to_string(count) + ")";
+	if (m_Meshes[newName] != nullptr)
+	{
+		addMeshLocal(name, count + 1, mesh);
+		return;
+	}
+
+	Debug::log("Registered (Mesh: " + newName + ")");
+	m_Meshes[newName] = mesh;
 }

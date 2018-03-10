@@ -7,10 +7,7 @@ Material::Material(std::string name, Shader* shader)
 	m_Shader = shader;
 }
 
-Material::Material(Shader* shader)
-{
-	m_Shader = shader;
-}
+Material::Material(Shader* shader) : Material("unnamed", shader) {}
 
 Material::~Material()
 {

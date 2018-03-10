@@ -6,7 +6,8 @@ typedef unsigned int uint;
 class Texture
 {
 public:
-	Texture(std::string name, std::string path);
+	explicit Texture(std::string name, std::string path);
+	Texture(std::string path);
 	virtual ~Texture();
 
 	GLuint get_ID();

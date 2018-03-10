@@ -6,7 +6,8 @@
 class Mesh
 {
 public:
-	Mesh(std::string name);
+	explicit Mesh(std::string name);
+	Mesh();
 	virtual ~Mesh() {};
 
 	void set_Vertices(std::vector<glm::vec3> vertices);

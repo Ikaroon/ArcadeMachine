@@ -33,6 +33,8 @@ private:
 
 	std::map<std::string, Texture*> m_Textures;
 
+	void addTextureLocal(std::string name, int count, Texture* texture);
+
 	class CGuard
 	{
 	public:

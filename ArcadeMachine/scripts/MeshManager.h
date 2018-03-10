@@ -33,6 +33,8 @@ private:
 
 	std::map<std::string, Mesh*> m_Meshes;
 
+	void addMeshLocal(std::string name, int count, Mesh* mesh);
+
 	class CGuard
 	{
 	public:

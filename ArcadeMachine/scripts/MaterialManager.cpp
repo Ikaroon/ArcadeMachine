@@ -11,6 +11,7 @@ void MaterialManager::addMaterialLocal(std::string name, Material * material)
 {
 	if (m_Materials[name] != nullptr)
 	{
+		addMaterialLocal(name, 1, material);
 		return;
 	}
 
@@ -41,4 +42,17 @@ void MaterialManager::clearLocal()
 		delete material.second;
 	}
 	m_Materials.clear();
+}
+
+void MaterialManager::addMaterialLocal(std::string name, int count, Material * material)
+{
+	std::string newName = name + "(" + std::to_string(count) + ")";
+	if (m_Materials[newName] != nullptr)
+	{
+		addMaterialLocal(name, count + 1, material);
+		return;
+	}
+
+	Debug::log("Registered (Material: " + newName + ")");
+	m_Materials[newName] = material;
 }

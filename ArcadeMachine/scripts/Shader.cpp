@@ -8,10 +8,7 @@ Shader::Shader(std::string name, std::string path)
 	ShaderManager::addShader(name, this);
 }
 
-Shader::Shader(std::string path)
-{
-	InitShader(path);
-}
+Shader::Shader(std::string path) : Shader("unnamed", path) {}
 
 void Shader::use()
 {
