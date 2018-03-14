@@ -126,6 +126,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="scripts\Bomb.h" />
+    <ClInclude Include="scripts\Cloud.h" />
+    <ClInclude Include="scripts\CloudMover.h" />
+    <ClInclude Include="scripts\Coin.h" />
+    <ClInclude Include="scripts\ItemController.h" />
     <ClInclude Include="scripts\MaterialManager.h" />
     <ClInclude Include="scripts\MeshManager.h" />
     <ClInclude Include="scripts/Application.h" />
@@ -141,7 +146,7 @@
     <ClInclude Include="scripts/Material.h" />
     <ClInclude Include="scripts/Mesh.h" />
     <ClInclude Include="scripts/MeshRenderer.h" />
-    <ClInclude Include="scripts/OBJLoader.h" />
+    <ClInclude Include="scripts\model_load.h" />
     <ClInclude Include="scripts/Pipeline.h" />
     <ClInclude Include="scripts/Renderer.h" />
     <ClInclude Include="scripts/RenderPackage.h" />
@@ -157,6 +162,9 @@
     <ClInclude Include="scripts/Window.h" />
     <ClInclude Include="scripts\FileReader.h" />
     <ClInclude Include="scripts\FontManager.h" />
+    <ClInclude Include="scripts\Player.h" />
+    <ClInclude Include="scripts\PlayerController.h" />
+    <ClInclude Include="scripts\SceneFalldown.h" />
     <ClInclude Include="scripts\Shader.h" />
     <ClInclude Include="scripts\ShaderManager.h" />
     <ClInclude Include="scripts\stb_image.h" />
@@ -176,11 +184,16 @@
     <ClCompile Include="scripts/Time.cpp" />
     <ClCompile Include="scripts/Window.cpp" />
     <ClCompile Include="scripts\Camera.cpp" />
+    <ClCompile Include="scripts\CloudMover.cpp" />
     <ClCompile Include="scripts\Debug.cpp" />
+    <ClCompile Include="scripts\ItemController.cpp" />
     <ClCompile Include="scripts\Material.cpp" />
     <ClCompile Include="scripts\MaterialManager.cpp" />
     <ClCompile Include="scripts\Mesh.cpp" />
     <ClCompile Include="scripts\MeshManager.cpp" />
+    <ClCompile Include="scripts\Player.cpp" />
+    <ClCompile Include="scripts\PlayerController.cpp" />
+    <ClCompile Include="scripts\SceneFalldown.cpp" />
     <ClCompile Include="scripts\Shader.cpp" />
     <ClCompile Include="scripts\ShaderManager.cpp" />
     <ClCompile Include="scripts\STBIMAGE.cpp" />

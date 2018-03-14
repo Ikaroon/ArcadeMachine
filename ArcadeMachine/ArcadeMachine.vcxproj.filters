@@ -91,6 +91,12 @@
     <Filter Include="Source Files\Engine\Systems\Rendering\Manager">
       <UniqueIdentifier>{a7cfe65a-697a-4198-b204-edee50d635c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Systems\Falldown">
+      <UniqueIdentifier>{060341b6-7cb8-4bdc-9450-631c3ee32466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Systems\Falldown">
+      <UniqueIdentifier>{b96c0c44-76fd-4649-a52b-f62e65b9f332}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="scripts/Application.cpp">
@@ -118,9 +124,6 @@
       <Filter>Source Files\Engine\Systems\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="scripts\Shader.cpp">
-      <Filter>Source Files\Engine\Systems\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="scripts\Material.cpp">
       <Filter>Source Files\Engine\Systems\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="scripts\Mesh.cpp">
@@ -156,6 +159,24 @@
     <ClCompile Include="scripts\STBIMAGE.cpp">
       <Filter>Source Files\Engine\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="scripts\SceneFalldown.cpp">
+      <Filter>Source Files\Engine\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\Material.cpp">
+      <Filter>Source Files\Engine\Systems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\CloudMover.cpp">
+      <Filter>Source Files\Engine\Systems\Falldown</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\PlayerController.cpp">
+      <Filter>Source Files\Engine\Systems\Falldown</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\Player.cpp">
+      <Filter>Source Files\Engine\Systems\Falldown</Filter>
+    </ClCompile>
+    <ClCompile Include="scripts\ItemController.cpp">
+      <Filter>Source Files\Engine\Systems\Falldown</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scripts/BillboardRenderer.h">
@@ -187,9 +208,6 @@
     </ClInclude>
     <ClInclude Include="scripts/MeshRenderer.h">
       <Filter>Header Files\Engine\Systems\Rendering\RenderComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="scripts/OBJLoader.h">
-      <Filter>Header Files\Engine\Systems\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="scripts/Pipeline.h">
       <Filter>Header Files\Engine\Systems\Pipeline</Filter>
@@ -274,6 +292,33 @@
     </ClInclude>
     <ClInclude Include="scripts\stb_image.h">
       <Filter>Header Files\Engine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\model_load.h">
+      <Filter>Header Files\Engine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\SceneFalldown.h">
+      <Filter>Header Files\Engine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\CloudMover.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\Cloud.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\Player.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\PlayerController.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\Bomb.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\Coin.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\ItemController.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

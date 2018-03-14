@@ -8,14 +8,16 @@ public:
 	float m_FoV;
 	float m_NearClip;
 	float m_FarClip;
+	glm::vec3 m_ClearColor;
 
 	static Camera* activeCamera;
 
-	Camera(float FoV, float nearClip, float farClip)
+	Camera(float FoV, float nearClip, float farClip, glm::vec3 color)
 	{
 		m_FoV = FoV;
 		m_NearClip = nearClip;
 		m_FarClip = farClip;
+		m_ClearColor = color;
 
 		if (activeCamera == nullptr)
 		{
@@ -34,7 +36,7 @@ public:
 		glm::mat4 view = glm::lookAt(
 			pos,
 			pos + (rot * glm::vec3(0.0f, 0.0f, 1.0f)),
-			glm::vec3(0.0f, scale->y, 0.0f)
+			get_GameObject()->get_Transform()->get_Rotation() * glm::vec3(0.0f, scale->y, 0.0f)
 		);
 
 		return view;

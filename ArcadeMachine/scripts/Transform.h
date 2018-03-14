@@ -113,7 +113,7 @@ public:
 		{
 			return m_LocalRotation;
 		}
-		return  m_LocalRotation * m_Parent->get_Rotation();
+		return  m_Parent->get_Rotation() * m_LocalRotation;
 	}
 
 	glm::mat4x4 get_RotationMatrix() const

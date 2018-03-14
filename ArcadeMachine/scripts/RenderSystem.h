@@ -6,7 +6,7 @@
 class RenderSystem : public System
 {
 private:
-	Window* m_Window;
+	static Window* m_Window;
 public:
 	RenderSystem();
 	~RenderSystem();
@@ -15,4 +15,5 @@ public:
 	void onRender();
 	void onPostRender();
 	void onQuit();
+	static Window* get_Window() { return m_Window; };
 };

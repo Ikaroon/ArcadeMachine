@@ -1,5 +1,32 @@
 #include "Mesh.h"
 #include "MeshManager.h"
+#include "model_load.h"
+
+Mesh::Mesh(std::string name, std::string path) : Mesh(name)
+{
+	std::vector<glm::vec3> outVertices;
+	//std::vector<glm::vec3> outVertexColors;
+	std::vector<glm::vec2> outUvs;
+	std::vector<glm::vec3> outNormals;
+
+	if (model_load::load(path, outVertices, outUvs, outNormals))
+	{
+		m_Vertices = outVertices;
+		//m_VertexColors = outVertexColors;
+		m_Uvs = outUvs;
+		m_Normals = outNormals;
+
+		for (int v = 0; v < m_Vertices.size(); v++)
+		{
+			m_VertexColors.push_back(glm::vec3(1.0f, 1.0f, 1.0f));
+		}
+
+		calculateGLData();
+	}
+	else {
+		Debug::error("Mesh could not be loaded!");
+	}
+}
 
 Mesh::Mesh(std::string name)
 {

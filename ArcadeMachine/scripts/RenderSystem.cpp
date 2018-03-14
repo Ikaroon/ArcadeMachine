@@ -8,6 +8,8 @@
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
 
+Window* RenderSystem::m_Window = NULL;
+
 RenderSystem::RenderSystem()
 {
 	Debug::log("Starting: Render System");
@@ -27,8 +29,9 @@ RenderSystem::RenderSystem()
 
 RenderSystem::~RenderSystem()
 {
-	Debug::log("Shut off: Render System");
+	Debug::log("Shutting off: Render System");
 	delete m_Window;
+	Debug::log("Shut off: Render System");
 }
 
 void RenderSystem::onPreRender()
@@ -48,8 +51,6 @@ void RenderSystem::onRender()
 		return;
 	}
 
-	m_Window->beginRendering();
-
 	std::vector<Component*>* m_Components = Application::get_CurrentScene()->get_AllComponents();
 
 	glm::mat4 viewMatrix;
@@ -62,15 +63,17 @@ void RenderSystem::onRender()
 		projectionMatrix = camera->get_PerspectiveMatrix(m_Window->get_Width(), m_Window->get_Height());
 	}
 
+	m_Window->beginRendering(camera->m_ClearColor);
+
 	for (unsigned int c = 0; c < m_Components->size(); c++)
 	{
 		Renderer* renderer = dynamic_cast<Renderer*>((*m_Components)[c]);
 		if (renderer != nullptr)
 		{
 			RenderPackage package = renderer->get_RenderData();
+			package.material->setActive();
 			glm::mat4 modelMatrix = renderer->get_GameObject()->get_Transform()->get_ObjectToWorldMatrix();
 			package.material->setMVP(viewMatrix, projectionMatrix, modelMatrix);
-			package.material->setActive();
 			package.mesh->draw();
 		}
 	}

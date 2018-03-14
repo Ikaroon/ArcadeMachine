@@ -3,6 +3,7 @@
 #include "Pipeline.h"
 
 #include "TestScene.h"
+#include "SceneFalldown.h"
 
 Application* Application::MAIN = 0;
 
@@ -125,7 +126,7 @@ void Application::loadSceneInThis(const int sceneID)
 Scene* Application::fetchScene(const int sceneID)
 {
 	Debug::log("Application is loading scene " + std::to_string(sceneID));
-	Scene* loadedScene = new TestScene();
+	Scene* loadedScene = new SceneFalldown();
 	Debug::log("Application finished loading scene " + std::to_string(sceneID));
 	Debug::sectionEnd("Scene");
 	return loadedScene;

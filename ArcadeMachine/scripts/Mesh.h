@@ -6,6 +6,7 @@
 class Mesh
 {
 public:
+	explicit Mesh(std::string name, std::string path);
 	explicit Mesh(std::string name);
 	Mesh();
 	virtual ~Mesh() {};

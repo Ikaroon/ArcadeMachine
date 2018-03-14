@@ -30,6 +30,21 @@ void Material::setActive()
 
 		texSampler++;
 	}
+	for (auto const &vector : m_Vector3s)
+	{
+		GLuint vectorID = glGetUniformLocation(m_Shader->get_Program(), vector.first.c_str());
+		glUniform3f(vectorID, vector.second.x, vector.second.y, vector.second.z);
+	}
+	for (auto const &vector : m_Vector2s)
+	{
+		GLuint vectorID = glGetUniformLocation(m_Shader->get_Program(), vector.first.c_str());
+		glUniform2f(vectorID, vector.second.x, vector.second.y);
+	}
+	for (auto const &value : m_Ints)
+	{
+		GLuint intID = glGetUniformLocation(m_Shader->get_Program(), value.first.c_str());
+		glUniform1i(intID, value.second);
+	}
 }
 
 void Material::setMVP(glm::mat4 view, glm::mat4 proj, glm::mat4 model)
@@ -64,4 +79,19 @@ void Material::setMVP(glm::mat4 view, glm::mat4 proj, glm::mat4 model)
 void Material::setTexture(std::string name, Texture* texture)
 {
 	m_Textures[name] = texture;
+}
+
+void Material::setVector(std::string name, glm::vec2 vector)
+{
+	m_Vector2s[name] = vector;
+}
+
+void Material::setVector(std::string name, glm::vec3 vector)
+{
+	m_Vector3s[name] = vector;
+}
+
+void Material::setInt(std::string name, int value)
+{
+	m_Ints[name] = value;
 }

@@ -50,7 +50,7 @@ Window::~Window()
 	glfwDestroyWindow(m_Window);
 }
 
-void Window::beginRendering()
+void Window::beginRendering(glm::vec3 clearColor)
 {
 	if (m_Window == nullptr)
 	{
@@ -58,8 +58,7 @@ void Window::beginRendering()
 		Application::close();
 		return;
 	}
-	// Clear the background as white
-	glClearColor(0.0, 0.0, 0.0, 1.0);
+	glClearColor(clearColor.x, clearColor.y, clearColor.z, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
