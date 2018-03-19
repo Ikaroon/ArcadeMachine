@@ -18,14 +18,9 @@ TestScene::TestScene()
 	Texture* testTexture2 = new Texture("textures/blue_64_text.bmp"); 
 	Texture* testTexture3 = new Texture("Test", "textures/pink_64_text.png");
 
-	Texture* map85012 = new Texture("Map85012", "textures/racer/maps/85012_ColorData.png");
-	Texture* marioPlayer = new Texture("PlayerMarion", "textures/racer/drivers/mario/player.png");
-
 	// Shaders
 	ShaderManager::clear();
 	Shader* testShader = new Shader("Test", "shaders/test");
-	Shader* racerStandard = new Shader("Racer Standard", "shaders/racer/standard");
-	Shader* racerDriver = new Shader("Racer Driver", "shaders/racer/driver");
 
 	// Materials
 	MaterialManager::clear();
@@ -36,15 +31,6 @@ TestScene::TestScene()
 	Material* testMaterial2 = new Material("Test2", testShader);
 	testMaterial2->setTexture("myTextureSampler", testTexture3);
 	testMaterial2->setTexture("myTextureSampler2", testTexture);
-
-	Material* mapMaterial = new Material("Map", racerStandard);
-	mapMaterial->setTexture("_MainTex", map85012);
-
-	Material* marioPlayerM = new Material("PlayerMarion", racerDriver);
-	marioPlayerM->setTexture("_MainTex", marioPlayer);
-
-	Material* marioPlayerM2 = new Material("PlayerMarion2", racerStandard);
-	marioPlayerM2->setTexture("_MainTex", marioPlayer);
 
 	// Meshes
 	MeshManager::clear();
@@ -130,34 +116,18 @@ TestScene::TestScene()
 
 	Mesh* mesh2 = new Mesh("Test Loaded", "models/donut.obj");
 
-	Mesh* mapModel = new Mesh("Map", "models/racer/map.obj");
-	Mesh* driverModel = new Mesh("Map", "models/racer/driver.obj");
-
 	// >> Scene Stuff
 
-	/*GameObject* testGameObjectRoot = new GameObject("Camera Obj Root");
+	GameObject* testGameObjectRoot = new GameObject("Camera Obj Root");
 	testGameObjectRoot->get_Transform()->set_LocalEulerAngles(0.0f, 0.0f, 0.0f);
-	testGameObjectRoot->get_Transform()->m_LocalPosition = glm::vec3(-3.573f, 0.0f, -0.317f);
-	add_GameObject(testGameObjectRoot);*/
-
-	// Player
-	GameObject* playerGameObject = new GameObject("Player Renderer");
-	//playerGameObject->get_Transform()->setParent(testGameObjectRoot->get_Transform());
-	playerGameObject->get_Transform()->m_LocalPosition = glm::vec3(-3.573f, 0.0f, -0.317f);
-	playerGameObject->get_Transform()->set_LocalEulerAngles(0.0f, 180.0f, 0.0f);
-	playerGameObject->get_Transform()->m_LocalScale = glm::vec3(0.5f, 0.5f, 0.5f);
-	// Renderer Component
-	MeshRenderer* playerRenderer = new MeshRenderer(driverModel, marioPlayerM);
-	playerGameObject->add_Component(playerRenderer);
-	// Add to scene
-	add_Component(playerRenderer);
-	add_GameObject(playerGameObject);
+	testGameObjectRoot->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 0.0f, 0.0f);
+	add_GameObject(testGameObjectRoot);
 
 	// Camera GO
 	GameObject* testGameObject = new GameObject("Camera Obj");
-	testGameObject->get_Transform()->setParent(playerGameObject->get_Transform());
-	testGameObject->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 0.1f, 0.2f);
-	testGameObject->get_Transform()->set_LocalEulerAngles(10.0f, 180.0f, 0.0f);
+	testGameObject->get_Transform()->setParent(testGameObjectRoot->get_Transform());
+	testGameObject->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 0.5f, 2.0f);
+	testGameObject->get_Transform()->set_LocalEulerAngles(0.0f, 180.0f, 0.0f);
 	//testGameObject->get_Transform()->rotateLocal(0.0f, 0.0f, 45.0f);
 	//testGameObject->get_Transform()->m_LocalScale = glm::vec3(1.0f, -1.0f, 1.0f);
 	// Camera Component
@@ -168,7 +138,7 @@ TestScene::TestScene()
 	add_GameObject(testGameObject);
 
 
-	/*
+	
 	// Triangle GO
 	GameObject* testGameObject2 = new GameObject("Test Renderer");
 	testGameObject2->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -200,33 +170,8 @@ TestScene::TestScene()
 	add_Component(meshRenderer2);
 	add_GameObject(testGameObject3);
 
-	// Add Systems to scene*/
+	// Add Systems to scene
 	add_System(new TurnTable());
-
-
-	// Map
-	GameObject* mapGameObject = new GameObject("Map Renderer");
-	mapGameObject->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 0.0f, 0.0f);
-	mapGameObject->get_Transform()->set_LocalEulerAngles(0.0f, 0.0f, 0.0f);
-	mapGameObject->get_Transform()->m_LocalScale = glm::vec3(1.0f, 1.0f, 1.0f);
-	// Renderer Component
-	MeshRenderer* mapRenderer = new MeshRenderer(mapModel, mapMaterial);
-	mapGameObject->add_Component(mapRenderer);
-	// Add to scene
-	add_Component(mapRenderer);
-	add_GameObject(mapGameObject);
-
-	// Map 2
-	/*GameObject* mapGameObject2 = new GameObject("Map Renderer");
-	mapGameObject2->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 0.0f, 0.0f);
-	mapGameObject2->get_Transform()->set_LocalEulerAngles(0.0f, 0.0f, 0.0f);
-	mapGameObject2->get_Transform()->m_LocalScale = glm::vec3(0.8f, 0.8f, 0.8f);
-	// Renderer Component
-	MeshRenderer* mapRenderer2 = new MeshRenderer(mapModel, marioPlayerM2);
-	mapGameObject2->add_Component(mapRenderer2);
-	// Add to scene
-	add_Component(mapRenderer2);
-	add_GameObject(mapGameObject2);*/
 }
 
 

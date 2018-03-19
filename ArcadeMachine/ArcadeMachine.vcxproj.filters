@@ -257,9 +257,6 @@
     <ClInclude Include="scripts/Debuging.h">
       <Filter>Header Files\Engine\HeaderCollections</Filter>
     </ClInclude>
-    <ClInclude Include="scripts\FontManager.h">
-      <Filter>Header Files\Engine\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="scripts\FileReader.h">
       <Filter>Header Files\Engine\Essentials</Filter>
     </ClInclude>
