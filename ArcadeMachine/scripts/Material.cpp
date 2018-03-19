@@ -11,10 +11,6 @@ Material::Material(Shader* shader) : Material("unnamed", shader) {}
 
 Material::~Material()
 {
-	if (m_Shader != nullptr)
-	{
-		delete m_Shader;
-	}
 }
 
 void Material::setActive()

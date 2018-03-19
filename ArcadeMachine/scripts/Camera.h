@@ -19,10 +19,7 @@ public:
 		m_FarClip = farClip;
 		m_ClearColor = color;
 
-		if (activeCamera == nullptr)
-		{
-			activeCamera = this;
-		}
+		activeCamera = this;
 	}
 
 	virtual ~Camera() {};

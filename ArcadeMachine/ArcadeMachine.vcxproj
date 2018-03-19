@@ -130,6 +130,7 @@
     <ClInclude Include="scripts\Cloud.h" />
     <ClInclude Include="scripts\CloudMover.h" />
     <ClInclude Include="scripts\Coin.h" />
+    <ClInclude Include="scripts\Heal.h" />
     <ClInclude Include="scripts\ItemController.h" />
     <ClInclude Include="scripts\MaterialManager.h" />
     <ClInclude Include="scripts\MeshManager.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="scripts\SceneFalldown.h" />
     <ClInclude Include="scripts\Shader.h" />
     <ClInclude Include="scripts\ShaderManager.h" />
+    <ClInclude Include="scripts\SpeedChanger.h" />
     <ClInclude Include="scripts\stb_image.h" />
     <ClInclude Include="scripts\Texture.h" />
     <ClInclude Include="scripts\TextureData.h" />

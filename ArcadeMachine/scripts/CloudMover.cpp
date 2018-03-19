@@ -4,6 +4,7 @@
 #include "Time.h"
 #include "Material.h"
 #include "Camera.h"
+#include "Player.h"
 
 CloudMover::CloudMover()
 {
@@ -49,7 +50,7 @@ void CloudMover::update()
 			}
 			else
 			{
-				cloud->get_GameObject()->get_Transform()->m_LocalPosition += glm::vec3(0.0f, 5.0f * Time::get_DeltaTime(), 0.0f);
+				cloud->get_GameObject()->get_Transform()->m_LocalPosition += glm::vec3(0.0f, Player::m_Player->m_FallSpeed * 5.0f * Time::get_DeltaTime(), 0.0f);
 			}
 		}
 	}

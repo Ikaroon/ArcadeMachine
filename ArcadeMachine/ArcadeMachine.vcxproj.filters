@@ -320,5 +320,11 @@
     <ClInclude Include="scripts\ItemController.h">
       <Filter>Header Files\Engine\Systems\Falldown</Filter>
     </ClInclude>
+    <ClInclude Include="scripts\Heal.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\SpeedChanger.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

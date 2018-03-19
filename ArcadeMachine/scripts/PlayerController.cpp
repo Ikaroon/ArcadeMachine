@@ -5,10 +5,12 @@
 
 PlayerController::PlayerController()
 {
+	Debug::log("Started: Player System");
 }
 
 PlayerController::~PlayerController()
 {
+	Debug::log("Shut off: Player System");
 }
 
 void PlayerController::update()

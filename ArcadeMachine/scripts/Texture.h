@@ -6,6 +6,9 @@ typedef unsigned int uint;
 class Texture
 {
 public:
+	enum class INTERPOLATION { LINEAR, BILINEAR };
+
+	explicit Texture(std::string name, std::string path, INTERPOLATION interpolation);
 	explicit Texture(std::string name, std::string path);
 	Texture(std::string path);
 	virtual ~Texture();

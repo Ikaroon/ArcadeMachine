@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "stb_image.h"
 
-TextureData TextureLoader::load(std::string path)
+TextureData TextureLoader::load(std::string path, Texture::INTERPOLATION interpolation)
 {
 	GLuint textureID = NULL;
 	int width;
@@ -14,8 +14,22 @@ TextureData TextureLoader::load(std::string path)
 	// set the texture wrapping/filtering options (on the currently bound texture object)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	
+	switch (interpolation)
+	{
+		case Texture::INTERPOLATION::LINEAR:
+		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		}
+		break;
+		case Texture::INTERPOLATION::BILINEAR:
+		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		}
+		break;
+	}
 	// load and generate the texture
 	unsigned char *data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 	if (data)
