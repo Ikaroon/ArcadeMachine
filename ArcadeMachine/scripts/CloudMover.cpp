@@ -5,6 +5,7 @@
 #include "Material.h"
 #include "Camera.h"
 #include "Player.h"
+#include "GameScreensSystem.h"
 
 CloudMover::CloudMover()
 {
@@ -18,6 +19,11 @@ CloudMover::~CloudMover()
 
 void CloudMover::update()
 {
+	if (GameScreensSystem::m_System->m_State != GameScreensSystem::STATE::PLAY)
+	{
+		return;
+	}
+
 	std::vector<Component*>* m_Components = Application::get_CurrentScene()->get_AllComponents();
 
 	for (unsigned int c = 0; c < m_Components->size(); c++)

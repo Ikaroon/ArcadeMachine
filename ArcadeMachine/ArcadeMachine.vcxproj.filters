@@ -177,6 +177,9 @@
     <ClCompile Include="scripts\ItemController.cpp">
       <Filter>Source Files\Engine\Systems\Falldown</Filter>
     </ClCompile>
+    <ClCompile Include="scripts\GameScreensSystem.cpp">
+      <Filter>Source Files\Engine\Systems\Falldown</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scripts/BillboardRenderer.h">
@@ -324,6 +327,12 @@
       <Filter>Header Files\Engine\Systems\Falldown</Filter>
     </ClInclude>
     <ClInclude Include="scripts\SpeedChanger.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\Clear.h">
+      <Filter>Header Files\Engine\Systems\Falldown</Filter>
+    </ClInclude>
+    <ClInclude Include="scripts\GameScreensSystem.h">
       <Filter>Header Files\Engine\Systems\Falldown</Filter>
     </ClInclude>
   </ItemGroup>

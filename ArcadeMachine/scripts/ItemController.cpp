@@ -4,9 +4,11 @@
 #include "Coin.h"
 #include "Heal.h"
 #include "SpeedChanger.h"
+#include "Clear.h"
 #include "Player.h"
 #include "Time.h"
 #include "Camera.h"
+#include "GameScreensSystem.h"
 
 ItemController::ItemController(Material * health, Material * score1, Material * score10, Material * score100)
 {
@@ -24,6 +26,11 @@ ItemController::~ItemController()
 
 void ItemController::update()
 {
+	if (GameScreensSystem::m_System->m_State != GameScreensSystem::STATE::PLAY)
+	{
+		return;
+	}
+
 	if (Camera::activeCamera == nullptr)
 	{
 		return;
@@ -76,7 +83,7 @@ void ItemController::update()
 				srand(time(0) + rand());
 				float lerpVal = (rand() % 1001) / 1000.0f;
 				heal->get_GameObject()->get_Transform()->m_LocalPosition.x = glm::mix(-0.5f, 0.5f, lerpVal);
-				heal->get_GameObject()->get_Transform()->m_LocalPosition.y = -(upperEnd + 0.025f + rand() % 100);
+				heal->get_GameObject()->get_Transform()->m_LocalPosition.y = -(upperEnd + 0.025f + rand() % 50);
 			}
 		}
 
@@ -91,7 +98,22 @@ void ItemController::update()
 				srand(time(0) + rand());
 				float lerpVal = (rand() % 1001) / 1000.0f;
 				speedChanger->get_GameObject()->get_Transform()->m_LocalPosition.x = glm::mix(-0.5f, 0.5f, lerpVal);
-				speedChanger->get_GameObject()->get_Transform()->m_LocalPosition.y = -(upperEnd + 0.025f + rand() % 100);
+				speedChanger->get_GameObject()->get_Transform()->m_LocalPosition.y = -(upperEnd + 0.025f + rand() % 50);
+			}
+		}
+
+		// Check if clear
+		Clear* clear = dynamic_cast<Clear*>((*m_Components)[c]);
+		if (clear != nullptr)
+		{
+			clear->get_GameObject()->get_Transform()->m_LocalPosition.y += Player::m_Player->m_FallSpeed * 0.3f * Time::get_DeltaTime();
+
+			if (clear->get_GameObject()->get_Transform()->m_LocalPosition.y > (upperEnd + 0.025f))
+			{
+				srand(time(0) + rand());
+				float lerpVal = (rand() % 1001) / 1000.0f;
+				clear->get_GameObject()->get_Transform()->m_LocalPosition.x = glm::mix(-0.5f, 0.5f, lerpVal);
+				clear->get_GameObject()->get_Transform()->m_LocalPosition.y = -(upperEnd + 0.025f + rand() % 100);
 			}
 		}
 	}
@@ -99,6 +121,11 @@ void ItemController::update()
 
 void ItemController::lateUpdate()
 {
+	if (GameScreensSystem::m_System->m_State != GameScreensSystem::STATE::PLAY)
+	{
+		return;
+	}
+
 	if (Camera::activeCamera == nullptr)
 	{
 		return;
@@ -166,10 +193,30 @@ void ItemController::lateUpdate()
 				speedChanger->get_GameObject()->get_Transform()->m_LocalPosition.y += 10.0f;
 			}
 		}
+
+		// Check if clear
+		Clear* clear = dynamic_cast<Clear*>((*m_Components)[c]);
+		if (clear != nullptr)
+		{
+			float distance = glm::distance(clear->get_GameObject()->get_Transform()->m_LocalPosition, Player::m_Player->get_GameObject()->get_Transform()->m_LocalPosition);
+
+			if (distance < 0.05f)
+			{
+				for (unsigned int c2 = 0; c2 < m_Components->size(); c2++)
+				{
+					Bomb* bomb = dynamic_cast<Bomb*>((*m_Components)[c2]);
+					if (bomb != nullptr)
+					{
+						bomb->get_GameObject()->get_Transform()->m_LocalPosition.y -= 2.0f;
+					}
+				}
+				clear->get_GameObject()->get_Transform()->m_LocalPosition.y += 10.0f;
+			}
+		}
 	}
 
 	if (Player::m_Player->m_Health <= 0.0f)
 	{
-		Application::loadScene(0);
+		GameScreensSystem::m_System->set_GameOver();
 	}
 }

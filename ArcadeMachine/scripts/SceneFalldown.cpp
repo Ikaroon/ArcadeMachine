@@ -21,7 +21,10 @@
 #include "Coin.h"
 #include "Heal.h"
 #include "SpeedChanger.h"
+#include "Clear.h"
 #include "ItemController.h"
+
+#include "GameScreensSystem.h"
 
 SceneFalldown::SceneFalldown()
 {
@@ -46,6 +49,10 @@ SceneFalldown::SceneFalldown()
 	Texture* speedUpTexture = new Texture("SpeedUpTexture", "textures/falldown/speedUp.png");
 	Texture* slowDownTexture = new Texture("SlowDownTexture", "textures/falldown/slowDown.png");
 	Texture* clearTexture = new Texture("ClearTexture", "textures/falldown/clear.png");
+
+	Texture* gameoverTexture = new Texture("GameOverTexture", "textures/falldown/gameoverB.png");
+	Texture* readyTexture = new Texture("ReadyTexture", "textures/falldown/ready.png");
+	Texture* goTexture = new Texture("GoTexture", "textures/falldown/go.png");
 
 	// Shaders
 	ShaderManager::clear();
@@ -86,6 +93,13 @@ SceneFalldown::SceneFalldown()
 	slowDownMaterial->setTexture("_MainTex", slowDownTexture);
 	Material* clearMaterial = new Material("ClearMat", standardShader);
 	clearMaterial->setTexture("_MainTex", clearTexture);
+
+	Material* gameoverMaterial = new Material("GameOverMat", standardShader);
+	gameoverMaterial->setTexture("_MainTex", gameoverTexture);
+	Material* readyMaterial = new Material("ReadyMat", standardShader);
+	readyMaterial->setTexture("_MainTex", readyTexture);
+	Material* goMaterial = new Material("GoMat", standardShader);
+	goMaterial->setTexture("_MainTex", goTexture);
 
 	Material* heartMaterial = new Material("HeartMat", standardShader);
 	heartMaterial->setTexture("_MainTex", heartTexture);
@@ -340,6 +354,22 @@ SceneFalldown::SceneFalldown()
 	add_Component(slowDownRenderer);
 	add_GameObject(slowDownObject);
 
+	// Clear PowerUP
+	GameObject* clearObject = new GameObject("Clear");
+	clearObject->get_Transform()->m_LocalPosition = glm::vec3(0.0f, -15.0f, 0.0f);
+	clearObject->get_Transform()->set_LocalEulerAngles(0.0f, 0.0f, 0.0f);
+	clearObject->get_Transform()->m_LocalScale = glm::vec3(0.25f, 0.25f, 0.25f);
+	// Renderer Component
+	MeshRenderer* clearRenderer = new MeshRenderer(facingMesh, clearMaterial);
+	clearObject->add_Component(clearRenderer);
+	// Player Component
+	Clear* clearComponent = new Clear();
+	clearObject->add_Component(clearComponent);
+	// Add to scene
+	add_Component(clearComponent);
+	add_Component(clearRenderer);
+	add_GameObject(clearObject);
+
 
 	// UI
 
@@ -405,6 +435,46 @@ SceneFalldown::SceneFalldown()
 	add_Component(score100Renderer);
 	add_GameObject(score100Object);
 
+
+
+	// Ready
+	GameObject* readyObject = new GameObject("Ready");
+	readyObject->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 10.0f, 0.1f);
+	readyObject->get_Transform()->set_LocalEulerAngles(0.0f, 0.0f, 0.0f);
+	readyObject->get_Transform()->m_LocalScale = glm::vec3(2.0f, 2.0f, 2.0f);
+	// Renderer Component
+	MeshRenderer* readyRenderer = new MeshRenderer(facingMesh, readyMaterial);
+	readyObject->add_Component(readyRenderer);
+	// Add to scene
+	add_Component(readyRenderer);
+	add_GameObject(readyObject);
+
+	// Go
+	GameObject* goObject = new GameObject("Go");
+	goObject->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 10.0f, 0.1f);
+	goObject->get_Transform()->set_LocalEulerAngles(0.0f, 0.0f, 0.0f);
+	goObject->get_Transform()->m_LocalScale = glm::vec3(2.0f, 2.0f, 2.0f);
+	// Renderer Component
+	MeshRenderer* goRenderer = new MeshRenderer(facingMesh, goMaterial);
+	goObject->add_Component(goRenderer);
+	// Add to scene
+	add_Component(goRenderer);
+	add_GameObject(goObject);
+
+	// GameOver
+	GameObject* gameOverObject = new GameObject("GameOver");
+	gameOverObject->get_Transform()->m_LocalPosition = glm::vec3(0.0f, 10.0f, 0.1f);
+	gameOverObject->get_Transform()->set_LocalEulerAngles(0.0f, 0.0f, 0.0f);
+	gameOverObject->get_Transform()->m_LocalScale = glm::vec3(2.0f, 2.0f, 2.0f);
+	// Renderer Component
+	MeshRenderer* gameOverRenderer = new MeshRenderer(facingMesh, gameoverMaterial);
+	gameOverObject->add_Component(gameOverRenderer);
+	// Add to scene
+	add_Component(gameOverRenderer);
+	add_GameObject(gameOverObject);
+
+
+	add_System(new GameScreensSystem(readyObject, goObject, gameOverObject));
 	add_System(new CloudMover());
 	add_System(new PlayerController());
 	add_System(new ItemController(heartFillMaterial, score1Material, score10Material, score100Material));

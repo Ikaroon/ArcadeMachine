@@ -127,9 +127,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="scripts\Bomb.h" />
+    <ClInclude Include="scripts\Clear.h" />
     <ClInclude Include="scripts\Cloud.h" />
     <ClInclude Include="scripts\CloudMover.h" />
     <ClInclude Include="scripts\Coin.h" />
+    <ClInclude Include="scripts\GameScreensSystem.h" />
     <ClInclude Include="scripts\Heal.h" />
     <ClInclude Include="scripts\ItemController.h" />
     <ClInclude Include="scripts\MaterialManager.h" />
@@ -188,6 +190,7 @@
     <ClCompile Include="scripts\Camera.cpp" />
     <ClCompile Include="scripts\CloudMover.cpp" />
     <ClCompile Include="scripts\Debug.cpp" />
+    <ClCompile Include="scripts\GameScreensSystem.cpp" />
     <ClCompile Include="scripts\ItemController.cpp" />
     <ClCompile Include="scripts\Material.cpp" />
     <ClCompile Include="scripts\MaterialManager.cpp" />

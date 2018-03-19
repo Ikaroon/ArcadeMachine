@@ -2,6 +2,7 @@
 #include "RenderSystem.h"
 #include "Player.h"
 #include "Time.h"
+#include "GameScreensSystem.h"
 
 PlayerController::PlayerController()
 {
@@ -15,6 +16,11 @@ PlayerController::~PlayerController()
 
 void PlayerController::update()
 {
+	if (GameScreensSystem::m_System->m_State != GameScreensSystem::STATE::PLAY)
+	{
+		return;
+	}
+
 	Player* player = Player::m_Player;
 	Transform* transform = player->get_GameObject()->get_Transform();
 
